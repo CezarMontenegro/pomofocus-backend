@@ -22,14 +22,14 @@ app.post('/test', (req, res) => {
 //server
 const PORT = 3000;
 
+//Server is only started if the DB connection has worked
 const startServer = async () => {
   try {
-    DBConnection(process.env.CONNECTION_URI)
+    DBConnection(process.env.CONNECTION_URI);
     app.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
   } catch (error) {
     console.log(error)
   }
 }
-
 startServer();
 
