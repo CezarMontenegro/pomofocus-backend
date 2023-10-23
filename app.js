@@ -3,17 +3,15 @@ const app = express();
 require('dotenv').config();
 const DBConnection = require('./connection/connection');
 const tasks = require('./routes/tasks');
+const notFound = require('./middlewares/not-found');
 
 //middlewares
 app.use(express.json())
 
 
 //routes
-app.get('/', (req, res) => {
-  res.send('To Do List Home Page')
-})
-
 app.use('/api/v1/tasks', tasks);
+app.use(notFound);
 
 
 //server
