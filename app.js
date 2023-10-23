@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
-const DBConnection = require('./connection/connection')
+const DBConnection = require('./connection/connection');
+const tasks = require('./routes/tasks');
 
 //middlewares
 app.use(express.json())
@@ -12,11 +13,7 @@ app.get('/', (req, res) => {
   res.send('To Do List Home Page')
 })
 
-app.post('/test', (req, res) => {
-  const teste = req.body
-  model.create(teste)
-  res.status(200).json({ msg: "funcionou" })
-})
+app.use('/api/v1/tasks', tasks);
 
 
 //server
