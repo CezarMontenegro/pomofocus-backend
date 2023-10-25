@@ -23,7 +23,7 @@ const startServer = async () => {
     DBConnection(process.env.CONNECTION_URI);
     app.listen(PORT, () => console.log(`Listening on port ${PORT}...`));
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 startServer();
