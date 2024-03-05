@@ -1,5 +1,7 @@
-import { log } from 'console';
 import express from 'express';
+
+import { conn } from './database/connection/connection';
+
 const server = express();
 
 server.use(express.json());
